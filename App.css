@@ -1,0 +1,12 @@
+
+.icons {
+    display: inline-flex;
+    float: right;
+    padding: 0px 0px 15px 7px;
+    color: #007bff;
+}
+
+.icons :hover {
+  color: #0060c7;
+  cursor: pointer;
+}

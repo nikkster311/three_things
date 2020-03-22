@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 export default class CreateEntry extends Component {
   constructor(props) {
@@ -24,10 +25,20 @@ export default class CreateEntry extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ['test user'],
-      username: 'test user'
-    })
+    axios.get("http://localhost:5000/users")
+      .then(res => {
+        if (res.data.length > 0) {
+          //the next few lines take the names and put them in abc order
+          var users = res.data.map(user => user.username) //going through all users, just grabbing username
+          console.log(users)
+          users.sort((a, b) => a.localeCompare(b, 'en', {ignorePunctuation: true}));
+          console.log(users)
+          this.setState({
+            users: users, //going through all users, just grabbing username
+            username: res.data[0].username //just setting the first choice in the dropdown
+          })
+        }
+      })
   }
 
   onChangeUsername(e) {
@@ -68,10 +79,20 @@ export default class CreateEntry extends Component {
       entry3: this.state.entry3,
       date: this.state.date
     }
-
+    var text = "Remember, the small things count. Did you enjoy a quiet moment? Did something make you smile? Did you find peace in something?";
     console.log(entry)
+    var entryLengths = [entry.entry1.length, entry.entry2.length, entry.entry3.length]
+    console.log(entryLengths)
 
-    window.location = '/';
+    if (entryLengths.includes(0)) {
+      alert(text);  //if any of the entries are empty, post an alert
+    } else {
+      //if no entries are empty, send to server
+      axios.post("http://localhost:5000/entries/add", entry)
+        .then(res => console.log(res.data));
+
+      window.location = '/';
+    }
   }
 
   render() {

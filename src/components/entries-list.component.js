@@ -12,7 +12,7 @@ const Entry = props => ( //functional react component, therefore doesn't need li
       <p className="card-text">{props.entry.entry2}</p>
       <p className="card-text">{props.entry.entry3}</p>
       <h5 className="card-title">{props.entry.username}</h5>
-      <p className="card-text"><small className="text-muted">{props.entry.date}</small></p>
+      <p className="card-text"><small className="text-muted">{props.entry.date.substring(0, 10)}</small></p>
 
       <div className="icons">
         <div className='delete-btn'
@@ -23,9 +23,9 @@ const Entry = props => ( //functional react component, therefore doesn't need li
         </div>
 
         <div className="icons">
-          <Link to={"/edit" + props.entry._id}><FontAwesomeIcon icon={ faEdit } /></Link>
+          <Link to={"/edit/" + props.entry._id}><FontAwesomeIcon icon={ faEdit } /></Link>
         </div>
-        
+
     </div>
   </div>
 )

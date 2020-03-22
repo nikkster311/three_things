@@ -113,8 +113,11 @@ export default class CreateEntry extends Component {
             }
           </select>
         </div>
+        <br/>
+        <h6>What are three positive things that happened in your life today?</h6>
+
         <div className="form-group">
-          <label>One good thing that happened today was: </label>
+          <label>One was: </label>
           <input type="text" required className="form-control"
             value={this.state.entry1}
             onChange={this.onChangeEntry1}
@@ -130,7 +133,7 @@ export default class CreateEntry extends Component {
         </div>
 
         <div className="form-group">
-          <label>And a final good thing: </label>
+          <label>And finally: </label>
           <input type="text" className="form-control" required
             value={this.state.entry3}
             onChange={this.onChangeEntry3}

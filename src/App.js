@@ -6,20 +6,24 @@ import CreateEntry from "./components/create-entry.component";
 import CreateUser from "./components/create-user.component";
 import EditEntry from "./components/edit-entry.component";
 import EntriesList from "./components/entries-list.component";
+import Footer from "./components/footer.component";
 
 
 function App() {
   return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <br/>
-        <Route path="/" exact component={EntriesList} />
-        <Route path="/edit/:id" component={EditEntry} />
-        <Route path="/create" component={CreateEntry} />
-        <Route path="/user" component={CreateUser} />
-      </div>
-    </Router>
+    <div class="main-container">
+      <Router>
+        <div className="container">
+          <Navbar />
+          <br/>
+          <Route path="/" exact component={EntriesList} />
+          <Route path="/edit/:id" component={EditEntry} />
+          <Route path="/create" component={CreateEntry} />
+          <Route path="/user" component={CreateUser} />
+        </div>
+      </Router>
+      <Footer />
+    </div>
   );
 }
 

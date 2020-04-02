@@ -25,6 +25,11 @@ html,
 body {
  height: 100%;
  position: relative;
+ background-color: #80cbc4;
+}
+
+.card-background {
+  background-color: #e0f2f1;
 }
 
 .main-container {

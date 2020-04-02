@@ -53,7 +53,7 @@ export default class CreateUser extends Component {
 
         <div className="form-group">
           <label>Username: </label>
-          <input ref="userInput" required className="form-control"
+          <input ref="userInput" required className="form-control card-background"
             placeholder="My name is.."
             value={this.state.username}
             onChange={this.onChangeUsername}/>

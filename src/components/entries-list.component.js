@@ -6,7 +6,7 @@ import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
 const Entry = props => ( //functional react component, therefore doesn't need lifestyle methods
-  <div className="card">
+  <div className="card card-background">
     <div className="card-body">
       <p className="card-text">{props.entry.entry1}</p>
       <p className="card-text">{props.entry.entry2}</p>

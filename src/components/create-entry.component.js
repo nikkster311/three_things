@@ -99,16 +99,18 @@ export default class CreateEntry extends Component {
     return(
       <div>
         <h3>Create new entry</h3>
+
+
         <form onSubmit={this.onSubmit}>
 
         <div className="form-group">
           <label>Username: </label>
-          <select ref="userInput" required className="form-control"
+          <select ref="userInput" required className="form-control card-background"
             value={this.state.username}
             onChange={this.onChangeUsername}>
             {
               this.state.users.map((user) => {
-                return <option key={user} value={user}>{user}</option>;
+                return <option key={user} className="card-background" value={user}>{user}</option>;
               })
             }
           </select>
@@ -118,7 +120,7 @@ export default class CreateEntry extends Component {
 
         <div className="form-group">
           <label>One was: </label>
-          <input type="text" required className="form-control"
+          <textarea type="text" required className="form-control card-background"
             value={this.state.entry1}
             onChange={this.onChangeEntry1}
           />
@@ -126,7 +128,7 @@ export default class CreateEntry extends Component {
 
         <div className="form-group">
           <label>A second good thing to happen today was:</label>
-          <input type="text" required className="form-control"
+          <textarea type="text" required className="form-control card-background"
             value={this.state.entry2}
             onChange={this.onChangeEntry2}
           />
@@ -134,7 +136,7 @@ export default class CreateEntry extends Component {
 
         <div className="form-group">
           <label>And finally: </label>
-          <input type="text" className="form-control" required
+          <textarea type="text" className="form-control card-background" required
             value={this.state.entry3}
             onChange={this.onChangeEntry3}
           />
@@ -146,6 +148,7 @@ export default class CreateEntry extends Component {
             <DatePicker
               selected={this.state.date}
               onChange={this.onChangeDate}
+              className="card-background"
             />
           </div>
         </div>

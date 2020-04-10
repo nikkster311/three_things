@@ -1,3 +1,5 @@
-This is a fullstack MERN/CRUD application built with Node.js, React, Express, MongoDB, and Bootstrap.
+This is a full stack MERN application using CRUD to allow users to add usernames and posts.
 
-Users can create a new username, and then enter three positive things that happened to them that day.
+Posts can be created, edited, and deleted.
+
+Designed with Bootstrap. Deployed with Heroku.

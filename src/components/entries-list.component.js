@@ -41,8 +41,10 @@ export default class EntriesList extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/entries")
+    console.log("running componentDidMount, axios.get('/entries')")
+    axios.get("/entries")
       .then(res => {
+        console.log("get call worked, res: " + res.data)
         this.setState({entries: res.data})
       })
       .catch((error) => {
@@ -51,7 +53,7 @@ export default class EntriesList extends Component {
   }
 
   deleteEntry(id) {
-    axios.delete("http://localhost:5000/entries/" + id)
+    axios.delete("/entries/" + id)
       .then(res => console.log(res.data));
     this.setState({
       entries: this.state.entries.filter(element => element._id !== id)

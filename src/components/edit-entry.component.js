@@ -25,7 +25,7 @@ export default class EditEntry extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/entries/"+this.props.match.params.id)
+    axios.get("/entries/"+this.props.match.params.id)
       .then(res => {
         this.setState({
           username: res.data.username,
@@ -39,7 +39,7 @@ export default class EditEntry extends Component {
         console.log(err);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('/users/')
       .then(res => {
         if (res.data.length > 0) {
           this.setState({
@@ -101,7 +101,7 @@ export default class EditEntry extends Component {
     } else {
       //if no entries are empty, send to server
 
-    axios.post("http://localhost:5000/entries/update/" + this.props.match.params.id, entry)
+    axios.post("/entries/update/" + this.props.match.params.id, entry)
       .then(res => console.log(res.data));
 
       window.location = "/";

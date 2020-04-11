@@ -6,15 +6,21 @@ const path = require('path');
 require('dotenv').config();  // so we can have env vars in the dotenv file
 
 const app = express();  // how we'll create our express server
-const port = process.env.PORT || 5000; //this number is for local development
+// const port = process.env.PORT || 5000; //this number is for local development
+
+// above from FCC tutorial, below for heroku deployment
+
+app.set('port', (process.env.PORT || 5000));
 
 app.use(cors());  //cors middleware
 app.use(express.json());  //allows us to parse json
 
 // app.get('/', (req, res) => res.send('root route'))
 
-const uri = process.env.ATLAS_URI; //get uri from mongodb atlas dashboard
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+const uri = process.env.MONGODB_URI; //get uri from mongodb atlas dashboard
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+.then(() => console.log('database connected!!'))
+.catch(err => console.log("error at mongoose connection, " + err));
 // above passes uri to start connection to mongodb server
 const connection = mongoose.connection;
 connection.once('open', () => { //once connection is open, will log phrase below
@@ -64,10 +70,13 @@ app.get('*', (req, res) => {
 
 
 
-
-
-
-
-app.listen(port, (req, res) => {  //this starts the server, server starts listening on a certian port
-  console.log(`server is running on port: ${port}`);
+app.listen(app.get('port'), function() {
+  console.log('node app is running on port', app.get('port'))
 });
+
+//above for heroku deployment
+// below from FCC tutorial
+
+// app.listen(port, (req, res) => {  //this starts the server, server starts listening on a certian port
+//   console.log(`server is running on port: ${port}`);
+// });

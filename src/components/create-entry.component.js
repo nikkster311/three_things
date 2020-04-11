@@ -25,7 +25,7 @@ export default class CreateEntry extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/users")
+    axios.get("/users")
       .then(res => {
         if (res.data.length > 0) {
           //the next few lines take the names and put them in abc order
@@ -88,7 +88,7 @@ export default class CreateEntry extends Component {
       alert(text);  //if any of the entries are empty, post an alert
     } else {
       //if no entries are empty, send to server
-      axios.post("http://localhost:5000/entries/add", entry)
+      axios.post("/entries/add", entry)
         .then(res => console.log(res.data));
 
       window.location = '/';

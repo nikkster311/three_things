@@ -1,0 +1,13 @@
+{
+  "name": "Three Things",
+  "description": "This is a full stack MERN application using CRUD to allow users to add usernames and posts.
+
+  Posts can be created, edited, and deleted.
+
+  Designed with Bootstrap. Deployed with Heroku.
+
+  Designed, developed, and created by Nikkster.tech.",
+  "repository": "https://git.heroku.com/three-things-ndt.git",
+  "logo": "C:\Users\nikks\Documents\projects\three_things_social_media_mern\client\build\icons8-menu-vertical-100.png",
+  "keywords": ["node", "express", "mern", "MongoDB", "React", "fullstack"],
+}

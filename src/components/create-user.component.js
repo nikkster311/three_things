@@ -32,7 +32,7 @@ export default class CreateUser extends Component {
       //if username is long enough, send it to the server
       console.log(user)
 
-      axios.post("http://localhost:5000/users/add", user)
+      axios.post("/users/add", user)
         .then(res => console.log(res.data));
         //this connects back to front end
 

@@ -3,3 +3,5 @@ This is a full stack MERN application using CRUD to allow users to add usernames
 Posts can be created, edited, and deleted.
 
 Designed with Bootstrap. Deployed with Heroku.
+
+Designed, developed, and created by Nikkster.tech.

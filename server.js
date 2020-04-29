@@ -17,7 +17,7 @@ app.use(express.json());  //allows us to parse json
 
 // app.get('/', (req, res) => res.send('root route'))
 
-const uri = process.env.MONGODB_URI; //get uri from mongodb atlas dashboard
+const uri = process.env.MONGOLAB_BLACK_URI; //get uri from mongodb atlas dashboard
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
 .then(() => console.log('database connected!!'))
 .catch(err => console.log("error at mongoose connection, " + err));
@@ -55,15 +55,15 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //if in production, serve index.html from BUILD, not PUBLIC
 //production mode
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, '/client/build')));
   app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+    res.sendfile(path.join(__dirname = '/client/build/index.html'));
     })}
 
 //if NOT in prod, if testing and running on localhost, run from PUBLIC folder
 //build mode
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'client/public/index.html'));})
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));})
 
 
 
